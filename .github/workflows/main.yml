@@ -41,8 +41,6 @@ jobs:
       # --- GEMINI (if tests interact with it) ---
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      # --- Node environment ---
-      NODE_ENV: test # Often useful to explicitly set NODE_ENV for tests
 
 
     steps:
