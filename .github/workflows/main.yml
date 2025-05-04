@@ -11,10 +11,38 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      # --- DATABASE ---
+      # IMPORTANT: Use your TEST database URL for testing!
+      MONGODB_URL: ${{ secrets.TEST_MONGODB_URL }} # Map test DB secret to the var your app expects
+
+      # --- AUTH/SECURITY ---
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
+      # Non-sensitive config values can be set directly or via secrets if preferred
+      PORT: 3001 # Often good to use a different port for tests if needed
+      LOCKOUT_DURATION: 5
+      MAX_LOGIN_ATTEMPTS: 10
+      jwtExpiration: 3600
+      MAX_OTP_ATTEMPTS: 5
+      OTP_LOCKOUT_DURATION: 600000
+
+      # --- EMAIL (using secrets as before) ---
       EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
       EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
       EMAIL_USER: ${{ secrets.EMAIL_USER }}
       EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+      EMAIL_FROM: "Enveave OTP CI" # Optional: Differentiate sender for test emails
+      EMAIL_SECURE: true # Assuming true based on your .env
+
+      # --- CLOUDINARY (if tests interact with it) ---
+      CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+      CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+      CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+
+      # --- GEMINI (if tests interact with it) ---
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      # --- Node environment ---
+      NODE_ENV: test # Often useful to explicitly set NODE_ENV for tests
 
 
     steps:
