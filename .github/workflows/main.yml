@@ -10,6 +10,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+      EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+      EMAIL_USER: ${{ secrets.EMAIL_USER }}
+      EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
