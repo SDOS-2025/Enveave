@@ -80,7 +80,7 @@ app.use('/api/admin', adminRoutes);
 if (process.env.NODE_ENV !== 'test') {
   const { port } = env;
   app.listen(port, () => {
-    console.log('Server is running on http://localhost:3000');
+    console.log('Server is runnin on http://localhost:3000');
   });
 }
 
