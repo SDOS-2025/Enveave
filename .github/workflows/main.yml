@@ -26,12 +26,12 @@ jobs:
       OTP_LOCKOUT_DURATION: 600000
 
       # --- EMAIL (using secrets as before) ---
-      EMAIL_HOST: smtp.gmail.com
-      EMAIL_PORT: 465
-      EMAIL_USER: enveavecontact@gmail.com
-      EMAIL_PASS: "akbv lmhn wovb qanp"
-      EMAIL_FROM: "Enveave OTP CI" # Optional: Differentiate sender for test emails
-      EMAIL_SECURE: true # Assuming true based on your .env
+      EMAIL_HOST: ${{secrets.EMAIL_HOST}}
+      EMAIL_PORT: ${{secrets.EMAIL_PORT}}
+      EMAIL_USER: ${{secrets.EMAIL_USER}}
+      EMAIL_PASS: ${{secrets.EMAIL_PASS}}
+      EMAIL_FROM: ${{secrets.EMAIL_FROM}} # Optional: Differentiate sender for test emails
+      EMAIL_SECURE: ${{secrets.EMAIL_SECURE}} # Assuming true based on your .env
 
       # --- CLOUDINARY (if tests interact with it) ---
       CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
