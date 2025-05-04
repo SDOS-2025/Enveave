@@ -13,7 +13,7 @@ jobs:
     env:
       # --- DATABASE ---
       # IMPORTANT: Use your TEST database URL for testing!
-      MONGODB_URL: ${{ secrets.TEST_MONGODB_URL }} # Map test DB secret to the var your app expects
+      TEST_MONGODB_URL: ${{ secrets.TEST_MONGODB_URL }} # Map test DB secret to the var your app expects
 
       # --- AUTH/SECURITY ---
       JWT_SECRET: ${{ secrets.JWT_SECRET }}
@@ -26,10 +26,10 @@ jobs:
       OTP_LOCKOUT_DURATION: 600000
 
       # --- EMAIL (using secrets as before) ---
-      EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
-      EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
-      EMAIL_USER: ${{ secrets.EMAIL_USER }}
-      EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+      EMAIL_HOST: smtp.gmail.com
+      EMAIL_PORT: 465
+      EMAIL_USER: enveavecontact@gmail.com
+      EMAIL_PASS: "akbv lmhn wovb qanp"
       EMAIL_FROM: "Enveave OTP CI" # Optional: Differentiate sender for test emails
       EMAIL_SECURE: true # Assuming true based on your .env
 
