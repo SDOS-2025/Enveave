@@ -18,7 +18,7 @@ jobs:
       # --- AUTH/SECURITY ---
       JWT_SECRET: ${{ secrets.JWT_SECRET }}
       # Non-sensitive config values can be set directly or via secrets if preferred
-      PORT: 3001 # Often good to use a different port for tests if needed
+      PORT: 3000 # Often good to use a different port for tests if needed
       LOCKOUT_DURATION: 5
       MAX_LOGIN_ATTEMPTS: 10
       jwtExpiration: 3600
